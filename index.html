@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>RehabMaster v0.2 • EBP 문진</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0ea5e9"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="top">
+    <h1>RehabMaster <span class="ver">v0.2</span></h1>
+    <div class="badges">
+      <span class="chip">EBP·초기문진</span>
+      <span class="chip">오프라인</span>
+    </div>
+  </header>
+
+  <main>
+    <section id="region-section" class="card">
+      <h2>1) 부위 선택</h2>
+      <p class="muted">부위를 탭하면 해당 부위 표준 문진이 시작됩니다. *개인정보 입력 금지</p>
+      <div id="regions" class="regions"></div>
+    </section>
+
+    <section id="qa-section" class="card hidden">
+      <div class="row-between">
+        <h2>2) 문진</h2>
+        <button id="btn-reset" class="ghost">초기화</button>
+      </div>
+      <div id="questions"></div>
+      <div class="row-between">
+        <button id="btn-back" class="ghost">← 부위 선택으로</button>
+        <button id="btn-analyze" class="primary">스코어 & 권고안</button>
+      </div>
+    </section>
+
+    <section id="result-section" class="card hidden">
+      <h2>3) 결과</h2>
+      <div id="scoreBox" class="score"></div>
+      <div id="adviceBox" class="advice"></div>
+      <details class="evidence">
+        <summary>근거 카드 보기</summary>
+        <div id="evidenceBox"></div>
+      </details>
+      <div class="row-between">
+        <button id="btn-edit" class="ghost">문진 수정</button>
+        <button id="btn-pdf" class="primary">PDF 저장</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>임시 메모</h2>
+      <textarea id="memo" placeholder="설명/교육 포인트 기록 (로컬 저장)"></textarea>
+      <div class="muted">* 브라우저 로컬(IndexedDB/LocalStorage)에만 저장됩니다.</div>
+    </section>
+  </main>
+
+  <footer class="muted center">© 2025 RehabMaster • 교육/의사결정 보조(진단 아님)</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
